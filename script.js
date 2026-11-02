@@ -1,4 +1,3 @@
-// ====== Mets ici tes 5 liens Linkvertise ======
 const LINKS=[
   "https://linkvertise.com/000000/lien-1",
   "https://linkvertise.com/000000/lien-2",
@@ -6,7 +5,7 @@ const LINKS=[
   "https://linkvertise.com/000000/lien-4",
   "https://linkvertise.com/000000/lien-5"
 ];
-// ==============================================
+
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const P={
@@ -29,9 +28,9 @@ wrench:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0
 shield:'<path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.500 3.800 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
 clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>'};
 $$('.ic').forEach(e=>e.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${P[e.dataset.i]||''}</svg>`);
-/* toasts */
+
 function toast(t,m,d=3000){const e=document.createElement('div'),w=$('#toasts');e.className='toast';e.style.setProperty('--d',d+'ms');e.innerHTML=`<b>${t}</b><span>${m}</span>`;w.appendChild(e);const k=()=>{e.classList.add('out');setTimeout(()=>e.remove(),300)};e.onclick=k;setTimeout(k,d);while(w.children.length>3)w.firstChild.remove()}
-/* tabs */
+
 const META={home:['Get Key','Complete a few steps to unlock the hub.'],script:['Script','Run the loader once you have your key.'],faq:['FAQ','Quick answers to common questions.']};
 function moveInd(){const t=$('.tab.on'),i=$('.ind');if(t&&i){i.style.top=t.offsetTop+'px';i.style.height=t.offsetHeight+'px'}}
 function show(id){
@@ -44,21 +43,21 @@ function show(id){
 $$('.tab').forEach(t=>t.onclick=()=>show(t.dataset.tab));
 $$('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.go)});
 addEventListener('resize',moveInd);
-/* groupboxes, toggles, sliders */
+
 $$('.bh').forEach(h=>h.onclick=()=>h.closest('.box').classList.toggle('c'));
 let hinted=false;
 $$('.tg').forEach(t=>{t.classList.toggle('on',t.getAttribute('aria-checked')==='true');t.onclick=()=>{t.classList.toggle('on');t.setAttribute('aria-checked',t.classList.contains('on'));if(!hinted){hinted=true;toast('Preview only','Get your key to use features in the hub.')}}});
 $$('input[type=range]').forEach(r=>{const o=$('output',r.closest('.row')),u=()=>{r.style.setProperty('--p',(r.value-r.min)/(r.max-r.min)*100+'%');o.textContent=r.value};r.oninput=u;u()});
-/* search */
+
 $('#q').oninput=e=>{const v=e.target.value.trim().toLowerCase();$$('.sr').forEach(el=>el.hidden=!!v&&!el.textContent.toLowerCase().includes(v));if(v){const f=$$('.sr').find(el=>!el.hidden);if(f)show(f.closest('.page').id.slice(2))}};
-/* copy */
+
 $('#copy').onclick=async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText($('#loader-code').textContent);b.textContent='Copied';toast('Copied','Script copied to your clipboard.',2200)}catch{b.textContent='Error'}setTimeout(()=>b.textContent='Copy',1600)};
-/* minimize / island */
+
 function toggleMin(f){const m=f??!$('#win').classList.contains('min');$('#win').classList.toggle('min',m);$('#island').classList.toggle('on',m)}
 $('#minb').onclick=()=>toggleMin(true);
 $('#island').onclick=e=>{if(!e.target.closest('.getkey'))toggleMin(false)};
 addEventListener('keydown',e=>{if(e.code==='ControlRight'&&!e.repeat)toggleMin()});
-/* GET KEY */
+
 let busy=false;
 function ripple(b,e){const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2,s=document.createElement('span');s.className='rip';const x=(e.clientX||r.left+r.width/2)-r.left-d/2,y=(e.clientY||r.top+r.height/2)-r.top-d/2;s.style.cssText=`width:${d}px;height:${d}px;left:${x}px;top:${y}px`;b.appendChild(s);setTimeout(()=>s.remove(),600)}
 function setBtns(txt,on){$$('.getkey').forEach(b=>{b.classList.toggle('loading',on);b.disabled=on;$('.lbl',b).textContent=txt})}
@@ -77,9 +76,9 @@ function getKey(e){
 }
 $$('.getkey').forEach(b=>b.addEventListener('click',getKey));
 addEventListener('pageshow',()=>{busy=false;setBtns('Get Key',false);$('#picker').classList.remove('show');$$('#picker i').forEach(c=>c.className='')});
-/* count up */
+
 function count(e){const to=+e.dataset.count,t0=performance.now(),D=RM?1:1400;(function f(t){const p=Math.min((t-t0)/D,1);e.textContent=Math.round(to*(1-Math.pow(1-p,4))).toLocaleString('en-US');if(p<1)requestAnimationFrame(f)})(t0)}
-/* intro loader */
+
 (function(){
   const L=$('#loader'),lis=$$('li',L),bar=$('.bar i',L),pct=$('#pct');let seen=false;
   try{seen=sessionStorage.getItem('seen')}catch(e){}
@@ -91,7 +90,7 @@ function count(e){const to=+e.dataset.count,t0=performance.now(),D=RM?1:1400;(fu
   (function f(){pct.textContent=Math.round(bar.offsetWidth/bar.parentNode.offsetWidth*100)+'%';if(L.isConnected)requestAnimationFrame(f)})();
   try{sessionStorage.setItem('seen','1')}catch(e){}
 })();
-/* snow */
+
 (function(){
   if(RM)return;const c=$('#snow'),x=c.getContext('2d');let w,h;const S=[];
   const rs=()=>{w=c.width=innerWidth;h=c.height=innerHeight};rs();addEventListener('resize',rs);
