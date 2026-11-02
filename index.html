@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08080a">
+<title>VOID HUB – Key System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 64 64" fill="none"><path d="M32 4 56 18v28L32 60 8 46V18Z" stroke="currentColor" stroke-width="3"/><path d="M20 24l12 22 12-22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="24" r="3.5" fill="currentColor"/></symbol></svg>
+<canvas id="snow"></canvas>
+<div class="loader" id="loader"><div class="lcard">
+  <div class="lhead"><svg class="lg"><use href="#logo"/></svg><div><b>VOID HUB</b><small>Key system</small></div><span id="pct">0%</span></div>
+  <ul><li><i></i>Preparing interface</li><li><i></i>Checking key system</li><li><i></i>Almost there</li></ul>
+  <div class="bar"><i></i></div>
+</div></div>
+<main class="stage">
+<div class="win" id="win">
+  <aside class="side">
+    <div class="head"><svg class="lg"><use href="#logo"/></svg><div><b>VOID HUB</b><small>Key system v1.0</small></div></div>
+    <nav class="tabs" role="tablist"><div class="ind"></div>
+      <button class="tab on" role="tab" data-tab="home"><span class="ic" data-i="home"></span>Home</button>
+      <button class="tab" role="tab" data-tab="script"><span class="ic" data-i="terminal"></span>Script</button>
+      <button class="tab" role="tab" data-tab="faq"><span class="ic" data-i="help"></span>FAQ</button>
+    </nav>
+    <div class="prof"><button class="btn pri side-btn getkey"><span class="ic" data-i="key"></span><span class="lbl">Get Key</span></button></div>
+  </aside>
+  <section class="content">
+    <div class="top">
+      <div class="t"><h1 id="ptitle">Get Key</h1><p id="pdesc"></p></div>
+      <label class="search"><span class="ic" data-i="search"></span><input id="q" placeholder="Search" autocomplete="off"></label>
+      <button class="ibtn" id="minb" title="Minimize (Right Ctrl)" aria-label="Minimize"><span class="ic" data-i="min"></span></button>
+    </div>
+    <div class="pages">
+      <div class="page on" id="p-home">
+        <div class="box hero">
+          <span class="ic bgk" data-i="key"></span>
+          <p class="cap">Welcome</p>
+          <h2>Unlock the hub in one minute</h2>
+          <p class="mu">Click Get Key, finish the checkpoint, then paste your key in the hub.</p>
+          <div class="cta">
+            <button class="btn pri xl getkey"><span class="ic" data-i="key"></span><span class="lbl">Get Key</span></button>
+            <button class="btn ghost xl" data-go="script">Get the script</button>
+          </div>
+          <div class="picker" id="picker"><span>Checkpoint</span><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i></div>
+        </div>
+        <div class="box"><div class="stats">
+          <div class="stat"><b data-count="12480">0</b><small>Keys given</small></div>
+          <div class="stat"><b class="live" data-count="342">0</b><small>Online now</small></div>
+          <div class="stat"><b>24h</b><small>Key duration</small></div>
+          <div class="stat"><b>v1.0</b><small>Latest version</small></div>
+        </div></div>
+        <div class="two">
+          <div class="box sr"><button class="bh"><span class="ic" data-i="ok"></span>How it works<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><div class="bi">
+            <div class="step"><em>1</em><div><b>Click Get Key</b><small>You are sent to a Linkvertise checkpoint.</small></div></div>
+            <div class="step"><em>2</em><div><b>Finish the steps</b><small>Follow Linkvertise until your key shows up.</small></div></div>
+            <div class="step"><em>3</em><div><b>Paste your key</b><small>Run the script and paste the key in the hub.</small></div></div>
+          </div></div></div></div>
+          <div class="box sr"><button class="bh"><span class="ic" data-i="link"></span>Links<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><div class="bi">
+            <a class="row" href="#"><div>Discord<small>Join the community and get help</small></div><span class="ic go" data-i="out"></span></a>
+            <a class="row" href="#" data-go="script"><div>Script<small>Copy the loader</small></div><span class="ic go" data-i="out"></span></a>
+            <a class="row" href="#" data-go="faq"><div>FAQ<small>Common questions</small></div><span class="ic go" data-i="out"></span></a>
+          </div></div></div></div>
+        </div>
+      </div>
+      <div class="page" id="p-script">
+        <div class="box"><button class="bh"><span class="ic" data-i="terminal"></span>Loader<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><div class="bi">
+          <p class="txt">Run this in your executor, then paste the key you got.</p>
+          <div class="code"><code id="loader-code">loadstring(game:HttpGet("https://ton-lien-ici.com/script.lua"))()</code><button class="btn pri sm" id="copy" style="animation:none">Copy</button></div>
+        </div></div></div></div>
+        <div class="box"><button class="bh"><span class="ic" data-i="shield"></span>Compatibility<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><div class="bi">
+          <div class="row sr">PC executors<span><span class="ok"></span>Supported</span></div>
+          <div class="row sr">Mobile executors<span><span class="ok"></span>Supported</span></div>
+        </div></div></div></div>
+      </div>
+      <div class="page" id="p-faq">
+        <div class="box sr"><button class="bh"><span class="ic" data-i="help"></span>My key does not work<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><p class="txt" style="padding-top:10px">Copy the key fully, without spaces. If it expired, come back here and get a new one.</p></div></div></div>
+        <div class="box c sr"><button class="bh"><span class="ic" data-i="clock"></span>How long does a key last?<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><p class="txt" style="padding-top:10px">A key is valid for 24 hours. After that, get a new one the same way.</p></div></div></div>
+        <div class="box c sr"><button class="bh"><span class="ic" data-i="link"></span>I am stuck on Linkvertise<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><p class="txt" style="padding-top:10px">Turn off your ad blocker, finish every step, then reload the page if it freezes.</p></div></div></div>
+        <div class="box c sr"><button class="bh"><span class="ic" data-i="users"></span>Where can I get help?<span class="ic chev" data-i="chev"></span></button><div class="bw"><div class="bb"><p class="txt" style="padding-top:10px">Join the Discord server, the team and the community answer questions there.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<div class="island" id="island"><svg class="lg"><use href="#logo"/></svg><b>VOID HUB</b><button class="btn pri sm getkey"><span class="lbl">Get Key</span></button></div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
